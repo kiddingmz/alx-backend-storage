@@ -1,0 +1,15 @@
+-- Safe divide
+DELIMITER $$
+
+CREATE FUNCTION SafeDiv(a INT, b INT)
+RETURNS DOUBLE
+DETERMINISTIC
+BEGIN
+  IF b = 0 THEN
+    RETURN 0;
+  END IF;
+
+  RETURN a / b;
+END$$
+
+DELIMITER ;
